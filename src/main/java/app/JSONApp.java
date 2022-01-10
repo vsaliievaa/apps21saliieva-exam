@@ -1,5 +1,6 @@
 package app;
 
+import com.sun.org.apache.bcel.internal.generic.EnumElementValueGen;
 import domain.*;
 import json.*;
 
@@ -8,10 +9,14 @@ import json.*;
  */
 public class JSONApp {
     public static void main(String[] args) {
+
+        final int FIRST_MARK = 3;
+        final int SECOND_MARK = 3;
+
         Json jYear = new JsonNumber(2);
         print(jYear); // 2
 
-        Json jMarks = new JsonArray(new JsonNumber(3), new JsonNumber(4));
+        Json jMarks = new JsonArray(new JsonNumber(FIRST_MARK), new JsonNumber(SECOND_MARK));
         print(jMarks); // [3, 4]
 
         JsonPair name = new JsonPair("name", new JsonString("Andrii"));
@@ -37,6 +42,9 @@ public class JSONApp {
     }
 
     public static JsonObject sessionResult() {
+        final int OOP_MARK = 3;
+        final int ENGLISH_MARK = 5;
+
         Json jYear = new JsonNumber(2);
         JsonPair year = new JsonPair("year", jYear);
 
@@ -44,10 +52,10 @@ public class JSONApp {
         JsonPair surname = new JsonPair("surname", new JsonString("Rodionov"));
 
         JsonObject oopObject = new JsonObject(new JsonPair("course", new JsonString("OOP")),
-                new JsonPair("mark", new JsonNumber(3)), new JsonPair("passed",
+                new JsonPair("mark", new JsonNumber(OOP_MARK)), new JsonPair("passed",
                 new JsonBoolean(true)));
         JsonObject englishObject = new JsonObject(new JsonPair("course",
-                new JsonString("English")), new JsonPair("mark", new JsonNumber(5)),
+                new JsonString("English")), new JsonPair("mark", new JsonNumber(ENGLISH_MARK)),
                 new JsonPair("passed", new JsonBoolean(true)));
         JsonObject mathObject = new JsonObject(new JsonPair("course", new JsonString("Math")),
                 new JsonPair("mark", new JsonNumber(2)), new JsonPair("passed",
