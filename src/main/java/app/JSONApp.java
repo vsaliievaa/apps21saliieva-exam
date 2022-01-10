@@ -47,11 +47,13 @@ public class JSONApp {
                 new JsonString("OOP")), new JsonPair("mark", new JsonNumber(3)),
                 new JsonPair("passed", new JsonBoolean(true)));
         JsonObject englishObject = new JsonObject(new JsonPair("course",
-                new JsonString("English")), new JsonPair("mark", new JsonNumber(5)),
-                new JsonPair("passed", new JsonBoolean(true)));
+                new JsonString("English")), new JsonPair("mark",
+                new JsonNumber(5)), new JsonPair("passed",
+                new JsonBoolean(true)));
         JsonObject mathObject = new JsonObject(new JsonPair("course",
-                new JsonString("Math")), new JsonPair("mark", new JsonNumber(2)),
-                new JsonPair("passed", new JsonBoolean(false)));
+                new JsonString("Math")), new JsonPair("mark",
+                new JsonNumber(2)), new JsonPair("passed",
+                new JsonBoolean(false)));
 
         JsonArray subjects = new JsonArray(oopObject, englishObject, mathObject);
         JsonPair exams = new JsonPair("exams", subjects);
