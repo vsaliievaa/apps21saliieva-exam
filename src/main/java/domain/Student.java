@@ -15,24 +15,26 @@ public class Student extends BasicStudent {
     protected Integer year;
     Tuple<String, Integer>[] exams;
 
+    private static final int PASSING_GRADE = 3;
+
     public Student(String name, String surname, Integer year, Tuple<String, Integer>... exams) {
         // ToDo
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
+        super(name, surname, year);
         this.exams = exams;
+    }
+
+    public boolean checkPassedStatus(Integer mark) {
+        return mark >= PASSING_GRADE;
     }
 
     @Override
     public JsonObject toJsonObject() {
-        JsonPair namePair = new JsonPair("name", new JsonString(name));
-        JsonPair surnamePair = new JsonPair("surname", new JsonString(surname));
-        JsonPair yearPair = new JsonPair("year", new JsonNumber(year));
+        JsonObject student = super.toJsonObject();
 
         Json[] examsList = new Json[exams.length];
 
         for (int i = 0; i < exams.length; i++) {
-            boolean status = exams[i].value >= 3;
+            boolean status = checkPassedStatus(exams[i].value);
 
             JsonPair coursePair = new JsonPair("course", new JsonString(exams[i].key));
             JsonPair markPair = new JsonPair("mark", new JsonNumber(exams[i].value));
@@ -45,7 +47,8 @@ public class Student extends BasicStudent {
         JsonArray examsArray = new JsonArray(examsList);
         JsonPair examsPair = new JsonPair("exams", examsArray);
 
-        return new JsonObject(namePair, surnamePair, yearPair, examsPair);
+        student.add(examsPair);
+        return student;
     }
 
 }
