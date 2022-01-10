@@ -11,7 +11,7 @@ public class JSONApp {
     public static void main(String[] args) {
 
         final int FIRST_MARK = 3;
-        final int SECOND_MARK = 3;
+        final int SECOND_MARK = 4;
 
         Json jYear = new JsonNumber(2);
         print(jYear); // 2
