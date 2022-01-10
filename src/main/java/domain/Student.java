@@ -10,9 +10,6 @@ import java.util.List;
  */
 public class Student extends BasicStudent {
 
-    protected String name;
-    protected String surname;
-    protected Integer year;
     Tuple<String, Integer>[] exams;
 
     private static final int PASSING_GRADE = 3;

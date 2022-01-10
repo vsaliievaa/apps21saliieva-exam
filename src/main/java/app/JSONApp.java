@@ -19,12 +19,16 @@ public class JSONApp {
         JsonPair marks = new JsonPair("marks", jMarks);
         JsonPair year = new JsonPair("year", jYear);
         JsonObject jsonObj = new JsonObject(name, surname, year, marks);
-        print(jsonObj); // {'name': 'Andrii', 'surname': 'Rodionov', 'year': 2, 'marks': [3, 4]}
+        print(jsonObj); // {'name': 'Andrii', 'surname': 'Rodionov',
+        // 'year': 2, 'marks': [3, 4]}
 
-        print(jsonObj.projection("surname", "age", "year", "marks")); // {'surname': 'Rodionov', 'year': 2, 'marks': [3, 4]}
+        print(jsonObj.projection("surname", "age", "year", "marks")); // {'surname':
+        // 'Rodionov', 'year': 2, 'marks': [3, 4]}
 
-        BasicStudent basicStudent = new BasicStudent("Andrii", "Rodionov", 2);
-        print(basicStudent.toJsonObject()); // {'name': 'Andrii', 'surname': 'Rodionov', 'year': 2}
+        BasicStudent basicStudent = new BasicStudent("Andrii",
+                "Rodionov", 2);
+        print(basicStudent.toJsonObject()); // {'name': 'Andrii', 'surname':
+        // 'Rodionov', 'year': 2}
 
     }
 
@@ -39,14 +43,17 @@ public class JSONApp {
         JsonPair name = new JsonPair("name", new JsonString("Andrii"));
         JsonPair surname = new JsonPair("surname", new JsonString("Rodionov"));
 
-        JsonObject OOPObject = new JsonObject(new JsonPair("course", new JsonString("OOP")),
-                new JsonPair("mark", new JsonNumber(3)), new JsonPair("passed", new JsonBoolean(true)));
-        JsonObject EnglishObject = new JsonObject(new JsonPair("course", new JsonString("English")),
-                new JsonPair("mark", new JsonNumber(5)), new JsonPair("passed", new JsonBoolean(true)));
-        JsonObject MathObject = new JsonObject(new JsonPair("course", new JsonString("Math")),
-                new JsonPair("mark", new JsonNumber(2)), new JsonPair("passed", new JsonBoolean(false)));
+        JsonObject oopObject = new JsonObject(new JsonPair("course", new JsonString("OOP")),
+                new JsonPair("mark", new JsonNumber(3)), new JsonPair("passed",
+                new JsonBoolean(true)));
+        JsonObject englishObject = new JsonObject(new JsonPair("course",
+                new JsonString("English")), new JsonPair("mark", new JsonNumber(5)),
+                new JsonPair("passed", new JsonBoolean(true)));
+        JsonObject mathObject = new JsonObject(new JsonPair("course", new JsonString("Math")),
+                new JsonPair("mark", new JsonNumber(2)), new JsonPair("passed",
+                new JsonBoolean(false)));
 
-        JsonArray subjects = new JsonArray(OOPObject, EnglishObject, MathObject);
+        JsonArray subjects = new JsonArray(oopObject, englishObject, mathObject);
         JsonPair exams = new JsonPair("exams", subjects);
 
         return new JsonObject(name, surname, year, exams);

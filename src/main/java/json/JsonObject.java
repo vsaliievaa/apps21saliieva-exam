@@ -61,7 +61,7 @@ public class JsonObject extends Json {
         return projectedObject;
     }
 
-    public boolean contains(String name,String ... names) {
+    public boolean contains(String name, String ... names) {
         for (String entry: names) {
             if (entry.equals(name)) {
                 return true;
