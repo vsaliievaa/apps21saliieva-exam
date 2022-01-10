@@ -1,6 +1,5 @@
 package app;
 
-import com.sun.org.apache.bcel.internal.generic.EnumElementValueGen;
 import domain.*;
 import json.*;
 
@@ -9,7 +8,6 @@ import json.*;
  */
 public class JSONApp {
     public static void main(String[] args) {
-
         Json jYear = new JsonNumber(2);
         print(jYear); // 2
 
