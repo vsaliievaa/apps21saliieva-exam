@@ -10,7 +10,7 @@ public class BasicStudent implements Jsonable {
 
     protected String name;
     protected String surname;
-    protected Integer year;
+    protected int year;
 
     public BasicStudent() {
     }

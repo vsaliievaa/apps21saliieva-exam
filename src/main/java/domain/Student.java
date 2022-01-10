@@ -17,7 +17,7 @@ public class Student extends BasicStudent {
         this.exams = exams;
     }
 
-    public boolean checkPassedStatus(Integer mark) {
+    public boolean checkPassedStatus(int mark) {
         return mark >= PASSING_GRADE;
     }
 

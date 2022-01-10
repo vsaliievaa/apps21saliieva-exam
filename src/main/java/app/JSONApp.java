@@ -8,10 +8,13 @@ import json.*;
  */
 public class JSONApp {
     public static void main(String[] args) {
+        int FIRST_MARK = 3;
+        int SECOND_MARK = 4;
+
         Json jYear = new JsonNumber(2);
         print(jYear); // 2
 
-        Json jMarks = new JsonArray(new JsonNumber(3), new JsonNumber(4));
+        Json jMarks = new JsonArray(new JsonNumber(FIRST_MARK), new JsonNumber(SECOND_MARK));
         print(jMarks); // [3, 4]
 
         JsonPair name = new JsonPair("name", new JsonString("Andrii"));
@@ -37,6 +40,8 @@ public class JSONApp {
     }
 
     public static JsonObject sessionResult() {
+        int ENGLISH_MARK = 5;
+        int OOP_MARK = 3;
         Json jYear = new JsonNumber(2);
         JsonPair year = new JsonPair("year", jYear);
 
@@ -44,18 +49,19 @@ public class JSONApp {
         JsonPair surname = new JsonPair("surname", new JsonString("Rodionov"));
 
         JsonObject oopObject = new JsonObject(new JsonPair("course",
-                new JsonString("OOP")), new JsonPair("mark", new JsonNumber(3)),
+                new JsonString("OOP")), new JsonPair("mark", new JsonNumber(OOP_MARK)),
                 new JsonPair("passed", new JsonBoolean(true)));
         JsonObject englishObject = new JsonObject(new JsonPair("course",
                 new JsonString("English")), new JsonPair("mark",
-                new JsonNumber(5)), new JsonPair("passed",
+                new JsonNumber(ENGLISH_MARK)), new JsonPair("passed",
                 new JsonBoolean(true)));
         JsonObject mathObject = new JsonObject(new JsonPair("course",
                 new JsonString("Math")), new JsonPair("mark",
                 new JsonNumber(2)), new JsonPair("passed",
                 new JsonBoolean(false)));
 
-        JsonArray subjects = new JsonArray(oopObject, englishObject, mathObject);
+        JsonArray subjects = new JsonArray(oopObject, englishObject,
+                mathObject);
         JsonPair exams = new JsonPair("exams", subjects);
 
         return new JsonObject(name, surname, year, exams);
